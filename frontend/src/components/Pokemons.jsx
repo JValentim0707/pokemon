@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import axios from 'axios';
 import Pagination from './Pagination';
 import IconFire from '../img/Fire.png'
@@ -93,7 +93,6 @@ class Pokemons extends React.Component {
         })
     }
     render() {
-        const { pokemons } = this.state
         return (
         <div>
             <div className="button-group">
