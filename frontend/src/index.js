@@ -1,31 +1,23 @@
 import './index.scss'
+import "bootstrap/dist/css/bootstrap.min.css";
 import pokemonLogo from './img/pokemonLogo.png'
-import { FaBars } from "react-icons/fa";
 import ReactDOM from 'react-dom'
 import React from 'react'
 
 import Pokemons from './components/Pokemons.jsx'
 
 class Body extends React.Component {
+    state = {
+        typePokemon: 'fire'
+    }
     render() {
         let showMenu = false;
         return (
         <div>
-            <div>
-                {
-                    showMenu 
-                    ? <div className="menuOpen"><div className="headerTitle"><div style={{width: '15%', display: 'flex', justifyContent: 'center', cursor: 'pointer'}}><FaBars /></div><div style={{width: '85%', display: 'flex', justifyContent: 'center'}}>TIPOS</div></div></div>
-                    : null
-                }
-                {/* <div className={{menu}}>
-                   <div className="headerTitle"><div style={{width: '15%', display: 'flex', justifyContent: 'center', cursor: 'pointer'}}><FaBars /></div><div style={{width: '85%', display: 'flex', justifyContent: 'center'}}>TIPOS</div></div>
-                </div> */}
-                <div className="navbar">
-                    <div className="menuIcon"><FaBars /></div>
-                    <div className="headerMenu"><img src={pokemonLogo}  alt="Logo Pokemon"/></div>
-                </div>
+            <div className="navbar">
+                <div className="headerMenu" onClick={e => console.log(showMenu)}><img src={pokemonLogo}  alt="Logo Pokemon"/></div>
             </div>
-            <Pokemons></Pokemons>
+            <Pokemons type={this.state.typePokemon}></Pokemons>
         </div>
         );
     }
